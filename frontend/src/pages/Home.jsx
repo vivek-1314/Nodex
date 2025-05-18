@@ -16,9 +16,10 @@ const Home = () => {
     const [following, setFollowing] = useState([]);
       useEffect(() => {
         if (!user || !userdetails) return;
+        console.log(userdetails) ;
         setFollowing(userdetails.following || []);
         setuserprofilepicurl(userdetails.profilePicUrl || null );
-      }, [userdetails]); 
+      }, [userdetails , user]); 
 
     const [searchquery , setsearchquery] = useState("") ;
     const inputRef = useRef(null);
@@ -70,8 +71,8 @@ const Home = () => {
                 params: { query: searchquery },
                 headers: { Authorization: `Bearer ${token}` } 
             });
-            console.log("Search query:", searchquery);
-            console.log("Search results:", response.data);
+            // console.log("Search query:", searchquery);
+            // console.log("Search results:", response.data);
             setloadingsearch(false) ;
             if(response.data.length === 0) {
                 seterror(true) ;
@@ -123,7 +124,7 @@ const Home = () => {
         if (response.status !== 201) {
             throw new Error("Failed to create post");
         }
-        console.log("Post created successfully:", response.data);
+        // console.log("Post created successfully:", response.data);
         alert("Post created successfully!");
         setmodalopen(false);
         settitle("");
@@ -266,7 +267,7 @@ professionalTitle
                 </div>
 
                 <div className="name font-bold w-full pl-2 pb-2  bg-transparent flex justify-between items-center">
-                    <span className='rounded-full bg-[#d0d7dc] px-2 py-1'>NODES</span>
+                    <span className='rounded-full bg-[#d0d7dc] px-2 py-1'>{focusidx}</span>
                     <div className="flex gap-2">
                         <button onClick={() => setmodalopen(true)} className='flex justify-center items-center h-10 w-10 p-3 border border-[1.4px] border-black rounded-full ml-3 bg-[#d0d7dc]'><img src="../images/plus.png" alt="no" /></button>
                         <a href="#" className='flex justify-center items-center h-10 w-10 p-3 border border-[1.4px] border-black rounded-full ml-3 bg-[#d0d7dc]'><img src="../images/upload.png" alt="no" /></a>

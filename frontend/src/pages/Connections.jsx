@@ -12,43 +12,10 @@ const Connections = () => {
   useEffect(() => {
     if (!user || !userdetails) return;
     setFollowed(userdetails.followers || []);
-    console.log(userdetails.following);
+    // console.log(userdetails.following);
     setFollowing(userdetails.following || []);
   }, [userdetails]); 
 
-
-  // const following = [
-  //   {
-  //     user: "user",
-  //     userName: "John Doe",
-  //     profession: "Software Engineer"
-  //   },
-  //   {
-  //     user: "user",
-  //     userName: "Jane Smith",
-  //     profession: "Product Designer"
-  //   },
-  //   {
-  //     user: "user",
-  //     userName: "Michael Johnson",
-  //     profession: "Data Scientist"
-  //   },
-  //   {
-  //     user: "user",
-  //     userName: "Emily Davis",
-  //     profession: "Marketing Manager"
-  //   },
-  //   {
-  //     user: "user",
-  //     userName: "David Brown",
-  //     profession: "UX Researcher"
-  //   },
-  //   {
-  //     user: "user",
-  //     userName: "David Brown",
-  //     profession: "UX Researcher"
-  //   }
-  // ];
 
   const suggestions = [
     {

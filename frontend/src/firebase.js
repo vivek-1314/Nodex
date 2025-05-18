@@ -2,15 +2,14 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCYW5A0G01fikAJjQDietY5XExLI3nashI",
-    authDomain: "nodex-de76d.firebaseapp.com",
-    projectId: "nodex-de76d",
-    storageBucket: "nodex-de76d.appspot.com",
-    messagingSenderId: "293950802372",
-    appId: "1:293950802372:web:73d1f7591ea7bc6f30fc91",
-    databaseURL: "https://nodex-de76d-default-rtdb.firebaseio.com"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL
   };
-
 
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app); 
