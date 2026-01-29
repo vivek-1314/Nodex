@@ -15,6 +15,11 @@ connectiontomongodb(url);
 app.use(express.json());
 app.use(cors());
 const path = require("path");
+
+app.use("/health", (req, res, next) => {
+    res.status(200).send("Nodex Server is up and running");
+});
+
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use("/user" , userroute);
